@@ -1,4 +1,5 @@
 /**app.wxss**/
+
 .container {
     display: flex;
     flex-direction: column;
@@ -128,6 +129,9 @@ color: #F6640D;
 opacity: 1;
 margin-top: 14rpx;
 }
+.mt0{
+    margin-top:0;
+}
 .priceTip{
 font-size: 24rpx;
 font-family: PingFang SC;
@@ -171,3 +175,15 @@ font-size: 36rpx;
     display: flex;
     justify-content: space-around;
 }
+
+/* 暂无数据 */
+.emptyData{
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    display: flex;
+}
+/* 失效 */
+.invalid{
+    color: #888888 !important;
+    }

@@ -4,12 +4,30 @@ const app = getApp()
 
 Page({
     data: {
-        cartGoods: [],
+        cartGoods: [{
+            number:2,
+            is_on_sale:1,
+            checked:1,
+            isTouchMove:true,
+            list_pic_url:'/statics/images/emptyData.jpg',
+            goods_name:'测试商品就很愧疚很愧疚很愧疚很愧疚好看',
+            goods_specifition_name_value:'23',
+            retail_price:'34'
+        },{
+            number:2,
+            is_on_sale:0,
+            checked:0,
+            isTouchMove:false,
+            list_pic_url:'/statics/images/emptyData.jpg',
+            goods_name:'测试商品就很愧疚很愧疚很愧疚很愧疚好看',
+            goods_specifition_name_value:'23',
+            retail_price:'34'
+        }],
         cartTotal: {
-            "goodsCount": 0,
-            "goodsAmount": 0.00,
-            "checkedGoodsCount": 0,
-            "checkedGoodsAmount": 0.00,
+            "goodsCount": 2,
+            "goodsAmount": 3.00,
+            "checkedGoodsCount": 40,
+            "checkedGoodsAmount": 50.00,
             "userId_test": ''
         },
         isEditCart: false,
@@ -69,7 +87,7 @@ Page({
                     hasCartGoods = 0;
                 }
                 that.setData({
-                    cartGoods: res.data.cartList,
+                    // cartGoods: res.data.cartList,
                     cartTotal: res.data.cartTotal,
                     hasCartGoods: hasCartGoods
                 });

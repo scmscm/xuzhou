@@ -37,7 +37,7 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.9.4",
+  "libVersion": "2.21.1",
   "appid": "wx6ac42da5fb31b46f",
   "projectname": "%E6%B5%B7%E9%A3%8E%E5%B0%8F%E5%BA%97",
   "isGameTourist": false,
@@ -49,21 +49,23 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "condition": {
-    "search": {
-      "list": []
-    },
-    "conversation": {
-      "list": []
-    },
     "plugin": {
       "list": []
     },
     "game": {
-      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
       "list": []
     },
     "miniprogram": {
-      "list": []
+      "list": [
+        {
+          "name": "购物车",
+          "pathName": "pages/cart/cart",
+          "scene": null
+        }
+      ]
     }
   }
 }
