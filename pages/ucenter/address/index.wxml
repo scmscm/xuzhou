@@ -20,11 +20,10 @@
             </view>
         </view>
     </view>
-    <view class="no-info" wx:else>
-        <image src="/images/icon/position-deny.png" class="img"></image>
-        <view class="text">没有地址信息</view>
+    <view class="emptyData" wx:else>
+        <emptyData></emptyData>
     </view>
     <view class="btn-wrap" bindtap="addAddress">
-        <view class="btn">新增收货地址</view>
+        <view class="btn">新增地址</view>
     </view>
 </view>

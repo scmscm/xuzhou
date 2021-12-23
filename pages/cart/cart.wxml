@@ -1,7 +1,21 @@
 <view class='container'>
-	<view class="page_wrap">
+	<view class="">
+	<!-- tabbar -->
+	<view class="nav_wrap flexCenter mb20" wx:if="{{cartGoods.length>=1}}">
+	 <view class="flexCenter">
+		<view class="navTitle activeNav">智慧贩卖</view>
+	<view class="navTitle  navRight">徐州圈</view></view>
+	</view>
 	<view class="goodsList" wx:if="{{cartGoods.length > 0}}">
-		<view class="a-goods invalid {{item.isTouchMove ? 'touch-move-active' : ''}}" wx:for="{{cartGoods}}" wx:key="id" bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{index}}">
+	<view wx:for="{{cartGoods}}" wx:key="id" class="machine_wrap mb20">
+	<view class="machine_title flexLeft">
+		<view class="checkbox" bindtap="checkedItem" data-item-index="{{index}}">
+					<image wx:if="{{item.checked == 1}}" class="checkbox-img" src="/images/icon/gou-red.png"></image>
+					<image wx:else class="checkbox-img" src="/images/icon/gou-gray.png"></image>
+				</view>
+					<text class="machineName">{{item.name}}</text>
+	</view>
+		<view class="a-goods invalid {{item.isTouchMove ? 'touch-move-active' : ''}}" wx:for="{{item.goods}}" wx:for-index="indexChild" wx:key="id" bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{index}}" data-goodsindex="{{indexChild}}">
 			<view class='content'>
 				<view wx:if="{{item.number >0 && item.is_on_sale == 1}}" class="checkbox" bindtap="checkedItem" data-item-index="{{index}}">
 					<image wx:if="{{item.checked == 1}}" class="checkbox-img" src="/images/icon/gou-red.png"></image>
@@ -46,19 +60,14 @@
 			</view>
 		</view>
 	</view>
+	
+	</view>
 	<view class="pageMarginb"></view>
 </view>
 	<!-- 暂无数据 -->
+	
 	<view class="emptyData" wx:if="{{cartGoods.length==0}}">
-		<view class="cart-empty-container {{hasCartGoods == 0?'show':''}}">
-			<view class='cart-empty-view'>
-				<image class='cart-empty' src='/statics/images/emptyData.jpg'></image>
-			</view>
-			<!-- <view class='cart-empty-txt'>车里什么都没有，快去买一点吧</view> -->
-			<!-- <view class="to-index-btn" bindtap="toIndexPage">
-				去逛逛
-			</view> -->
-		</view>
+		<emptyData></emptyData>
 	</view>
 	<!-- 全选 -->
 	<view class="settle-box" wx:if="{{cartGoods.length > 0}}">

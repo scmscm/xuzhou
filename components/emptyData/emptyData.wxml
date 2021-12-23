@@ -1,0 +1,8 @@
+<!--components/emptyData/emptyData.wxml-->
+<view class="emptyData">
+		<view class="cart-empty-container {{hasCartGoods == 0?'show':''}}">
+			<view class='cart-empty-view'>
+				<image class='cart-empty' src='/statics/images/emptyData.jpg'></image>
+			</view>
+		</view>
+	</view>

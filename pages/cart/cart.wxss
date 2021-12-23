@@ -2,6 +2,53 @@ page {
     height: 100%;
     background-color:#F8F8F8;
 }
+.nav_wrap{
+    width: 100%;
+height: 100rpx;
+background: #FFFFFF;
+}
+.navTitle{
+    width: 200rpx;
+height: 60rpx;
+background: #F5F5F5;
+opacity: 1;
+border-radius: 10rpx 0rpx 0rpx 10rpx;
+font-size: 28rpx;
+font-family: PingFang SC;
+line-height: 60rpx;
+color: #555555;
+text-align: center;
+}
+.activeNav{
+background: #09C15F;
+color: #fff;
+}
+.navRight{
+    border-radius: 0px 10px 10px 0px;
+}
+.machine_wrap{
+    background: #FFFFFF;
+    padding-top:30rpx;
+    padding-left:20rpx;
+    box-sizing: border-box;
+}
+.machineName{
+height: 40rpx;
+font-size: 28rpx;
+font-family: PingFang SC;
+font-weight: 500;
+line-height: 28rpx;
+color: #222222;
+margin-left: 20rpx;
+}
+
+.machine_title .checkbox image{
+    width: 32rpx;
+height: 32rpx;
+background: #09C15F;
+opacity: 1;
+border-radius: 24rpx;
+}
 
 .container {
     justify-content: initial;
@@ -55,7 +102,7 @@ page {
 
 .a-goods {
     width: 100%;
-    height: 240rpx;
+    height: 220rpx;
     overflow: hidden;
     position: relative;
     background: #fff;
@@ -292,7 +339,7 @@ button::after {
 }
 
 .selnum .number {
-    width: 52rpx;
+    width: 56rpx;
     height: 34rpx;
     font-size: 30rpx;
     color: #233445;

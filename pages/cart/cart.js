@@ -4,25 +4,55 @@ const app = getApp()
 
 Page({
     data: {
-        cartGoods: [{
-            number:2,
-            is_on_sale:1,
-            checked:1,
-            isTouchMove:true,
-            list_pic_url:'/statics/images/emptyData.jpg',
-            goods_name:'测试商品就很愧疚很愧疚很愧疚很愧疚好看',
-            goods_specifition_name_value:'23',
-            retail_price:'34'
-        },{
-            number:2,
-            is_on_sale:0,
-            checked:0,
-            isTouchMove:false,
-            list_pic_url:'/statics/images/emptyData.jpg',
-            goods_name:'测试商品就很愧疚很愧疚很愧疚很愧疚好看',
-            goods_specifition_name_value:'23',
-            retail_price:'34'
-        }],
+        cartGoods:[],
+    //     cartGoods: [
+    //         {
+    //             name:'机器机器机器机器A147',
+    //             goods:[{
+    //                 number:2,
+    //                 is_on_sale:1,
+    //                 checked:1,
+    //                 isTouchMove:false,
+    //                 list_pic_url:'/statics/images/emptyData.jpg',
+    //                 goods_name:'测试商品就很愧疚很愧疚很愧疚很愧疚好看',
+    //                 goods_specifition_name_value:'23',
+    //                 retail_price:'34'
+    //             },{
+    //                 number:2,
+    //                 is_on_sale:0,
+    //                 checked:0,
+    //                 isTouchMove:false,
+    //                 list_pic_url:'/statics/images/emptyData.jpg',
+    //                 goods_name:'测试商品就很愧疚很愧疚很愧疚很愧疚好看',
+    //                 goods_specifition_name_value:'23',
+    //                 retail_price:'34'
+    //             }]
+
+    //     },
+    //     {
+    //         name:'机器机器机器机器A147',
+    //         goods:[{
+    //             number:2,
+    //             is_on_sale:1,
+    //             checked:1,
+    //             isTouchMove:false,
+    //             list_pic_url:'/statics/images/emptyData.jpg',
+    //             goods_name:'测试商品就很愧疚很愧疚很愧疚很愧疚好看',
+    //             goods_specifition_name_value:'23',
+    //             retail_price:'34'
+    //         },{
+    //             number:2,
+    //             is_on_sale:0,
+    //             checked:0,
+    //             isTouchMove:false,
+    //             list_pic_url:'/statics/images/emptyData.jpg',
+    //             goods_name:'测试商品就很愧疚很愧疚很愧疚很愧疚好看',
+    //             goods_specifition_name_value:'23',
+    //             retail_price:'34'
+    //         }]
+
+    // }
+    //     ],
         cartTotal: {
             "goodsCount": 2,
             "goodsAmount": 3.00,
@@ -299,10 +329,15 @@ Page({
 
     },
     touchstart: function(e) {
+        console.log(e,"sdfsdf")
         //开始触摸时 重置所有删除
+        var dataset=e.currentTarget.dataset;
+        console.log(this.data.cartGoods[dataset.index],"sdfsdf")
         this.data.cartGoods.forEach(function(v, i) {
-            if (v.isTouchMove) //只操作为true的
-                v.isTouchMove = false;
+            v.goods.forEach((item) => {
+                if (item.isTouchMove) //只操作为true的
+                item.isTouchMove = false;
+            })
         })
         this.setData({
             startX: e.changedTouches[0].clientX,
@@ -312,8 +347,12 @@ Page({
     },
     //滑动事件处理
     touchmove: function(e) {
+        console.log("yidong ")
+        var dataset=e.currentTarget.dataset;
+        console.log(dataset,"goodsindex")
         var that = this,
-            index = e.currentTarget.dataset.index, //当前索引
+            index = e.currentTarget.dataset.index, //当前块索引
+            goodsindex = e.currentTarget.dataset.goodsindex, //当前选择的索引
             startX = that.data.startX, //开始X坐标
             startY = that.data.startY, //开始Y坐标
             touchMoveX = e.changedTouches[0].clientX, //滑动变化坐标
@@ -327,15 +366,18 @@ Page({
                 Y: touchMoveY
             });
         that.data.cartGoods.forEach(function(v, i) {
-            v.isTouchMove = false
-            //滑动超过30度角 return
-            if (Math.abs(angle) > 30) return;
-            if (i == index) {
-                if (touchMoveX > startX) //右滑
-                    v.isTouchMove = false
-                else //左滑
-                    v.isTouchMove = true
-            }
+            v.goods.forEach((item,indexs) => {
+                item.isTouchMove = false
+                //滑动超过30度角 return
+                if (Math.abs(angle) > 30) return;
+                if (i == index && indexs==goodsindex) {
+                    if (touchMoveX > startX) //右滑
+                        item.isTouchMove = false
+                    else //左滑
+                        item.isTouchMove = true
+                }
+            })
+           
         })
         //更新数据
         that.setData({

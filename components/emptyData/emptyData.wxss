@@ -1,0 +1,20 @@
+/* components/emptyData/emptyData.wxss */
+
+.cart-empty-view {
+  width: 380rpx;
+  height: 380rpx;
+  margin: 0 auto;
+}
+
+.cart-empty {
+  width: 380rpx;
+  height: 380rpx;
+}
+
+.cart-empty-txt {
+  width: 100%;
+  text-align: center;
+  color: #999;
+  font-size: 28rpx;
+  margin: 40rpx 0;
+}

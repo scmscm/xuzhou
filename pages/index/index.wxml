@@ -1,13 +1,13 @@
 <view class="container" wx:if="{{loading == 1}}">
        <!-- 搜索 -->
-       <view class="page_wrap" style="position:sticky;top:0;z-index:99;">
+       <view class="view_wrap" style="position:sticky;top:0;z-index:99;">
        <view class="search" bindtap="goSearch">
         <image class="icon" src="/images/icon/search.png"></image>
         <text class="txt">搜索发现更多好物</text>
     </view> 
     </view> 
         <!-- banner -->
- <view class="page_wrap mb20">
+ <view class="view_wrap mb20">
     <view class='banner-wrap' wx:if="{{show_banner && banner.length > 0}}">
         <swiper class="banner" indicator-dots="true" autoplay="{{autoplay}}" interval="3000" duration="1000"   >
             <swiper-item wx:for="{{banner}}" wx:key="id">
